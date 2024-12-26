@@ -1,5 +1,5 @@
 import streamlit as st
-from openai import OpenAI
+import openai
 
 # Show title and description.
 st.title("Hey, Ehaan!")
@@ -11,8 +11,8 @@ openai_api_key = st.text_input("OpenAI API Key", type="password")
 if not openai_api_key:
     st.info("Please add your OpenAI API key to continue.", icon="🗝️")
 else:
-    # Create an OpenAI client.
-    client = OpenAI(api_key=openai_api_key)
+    # Set the OpenAI API key.
+    openai.api_key = openai_api_key
 
     # Let the user upload a file via `st.file_uploader`.
     uploaded_file = st.file_uploader("Upload a document (.txt or .md)", type=("txt", "md"))
@@ -35,7 +35,7 @@ else:
         ]
 
         # Generate an answer using the OpenAI API.
-        response = client.ChatCompletion.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=messages,
         )
@@ -65,7 +65,7 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
 
     # Generate a response using the OpenAI API.
-    response = client.ChatCompletion.create(
+    response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": m["role"], "content": m["content"]}
