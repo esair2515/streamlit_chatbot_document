@@ -54,8 +54,8 @@ else:
 
 st.markdown("---")
 st.subheader("Chatbot")
-#chatbot
- # Create a session state variable to store the chat messages. This ensures that the
+
+# Create a session state variable to store the chat messages. This ensures that the
     # messages persist across reruns.
     if "messages" not in st.session_state:
         st.session_state.messages = []
