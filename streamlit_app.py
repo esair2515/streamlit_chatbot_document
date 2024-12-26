@@ -3,6 +3,7 @@ from openai import OpenAI
 
 # Show title and description.
 st.title("Hey, Ehaan!")
+st.subheader("DB Chatbot")
 st.write(
     
 )
@@ -51,6 +52,8 @@ else:
         # Stream the response to the app using `st.write_stream`.
         st.write_stream(stream)
 
+st.markdown("---")
+st.subheader("Chatbot")
 #chatbot
  # Create a session state variable to store the chat messages. This ensures that the
     # messages persist across reruns.
