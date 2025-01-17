@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 
 # Show title and description.
-st.title("Hey, Ehaan!")
+st.title()
 st.write(
 
 )
